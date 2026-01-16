@@ -10,6 +10,9 @@ export default class TweetService{
         const tags = content.match(/#[a-zA-Z0-9_]+/g)
                                     .map((tag)=>tag.substring(1).toLowerCase())//this regex extracts hashtags
         const tweet = await this.tweetRepository.create(data);
+        if(!tags || tags.length==0){
+            return tweet;
+        }
         let alreadyPresentTags = await this.hashTagRepository.findByName(tags);
         let titleOfPresentTags = alreadyPresentTags.map((tag) => tag.title);
         let newTags = tags.filter(tag => !titleOfPresentTags.includes(tag));
