@@ -10,6 +10,6 @@ app.listen(3000,async()=>{
     await connect();
     console.log('Mongo DB connected');
     const ser = new service();
-    const tweet = await ser.create({content:"Done with #refactor ?"})
+    const tweet = await ser.create({content:"Done with #CAPITAL tweet ?"})
     console.log(tweet);
 })
