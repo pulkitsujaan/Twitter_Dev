@@ -1,14 +1,7 @@
 import Tweet from '../models/tweet.js'
+import CrudRepository from './crud-repository.js';
 
-export default class TweetRepository {
-    async create(data) {
-        try {
-            const tweet = Tweet.create(data);
-            return tweet;
-        } catch (error) {
-            console.log(error);
-        }
-    }
+export default class TweetRepository extends CrudRepository {
 
     async get(tweetId){
         try {
@@ -25,15 +18,6 @@ export default class TweetRepository {
                 path:'comments'
             }).lean();
             return tweet;
-        } catch (error) {
-            console.log(error);
-        }
-    }
-
-    async destroy(id){
-        try {
-            await Tweet.findByIdAndDelete(id);
-            return true;
         } catch (error) {
             console.log(error);
         }
