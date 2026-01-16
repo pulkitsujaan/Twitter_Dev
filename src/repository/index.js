@@ -1,7 +1,8 @@
-const HashtagRepository = require("./hastags-repository");
-const TweetRepository = require("./tweet-repository");
+import HashtagRepository from "./hastags-repository.js";
+import TweetRepository from "./tweet-repository.js";
 
-module.exports = {
+ 
+export {
     TweetRepository,
     HashtagRepository
 }
