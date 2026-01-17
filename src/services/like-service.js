@@ -6,7 +6,7 @@ export default class LikeService{
         this.tweetRepository = new TweetRepository();
     }
     
-    async toggleLike(modelId, modelType,userId){
+    async toggleLike(modelId, modelType,userId){//api/v1/likes/toggle?id=modelid&type=Tweet
         if(modelType=='Tweet'){
             var likeable = await this.tweetRepository.find(modelId);
         }
